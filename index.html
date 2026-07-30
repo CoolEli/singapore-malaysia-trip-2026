@@ -22,6 +22,7 @@
     }
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
+    body { overflow-x: hidden; }
     body {
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
@@ -75,8 +76,9 @@
       white-space: nowrap;
       font-size: 14px;
       cursor: pointer;
+      min-height: 42px;
     }
-    .map-btn { display: inline-flex; align-items: center; gap: 6px; color: var(--brand); font-weight: 650; }
+    .map-btn { display: inline-flex; align-items: center; gap: 6px; color: var(--brand); font-weight: 650; white-space: normal; overflow-wrap: anywhere; }
     .section { padding: 42px 0; }
     .section h2 { font-size: clamp(28px, 4.2vw, 52px); margin: 0 0 18px; letter-spacing: 0; }
     .route-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
@@ -112,11 +114,30 @@
       .hero { min-height: auto; padding-top: 24px; }
       .slot { grid-template-columns: 78px 1fr; gap: 10px; }
       .stats { grid-template-columns: repeat(2, 1fr); }
+      .hero-card { padding: 18px; }
+      .section { padding: 32px 0; }
+      .section h2 { font-size: 34px; }
+      .day-head h3 { font-size: 21px; overflow-wrap: anywhere; }
+      .day-head p, .item p, .city-card p, .info-card p, .info-card li { font-size: 15px; }
     }
     @media (max-width: 430px) {
+      .shell { padding: 14px; }
+      .hero { padding: 18px 0 16px; }
+      h1 { font-size: 46px; line-height: .96; }
+      .subtitle { font-size: 17px; line-height: 1.45; }
+      .stats { gap: 8px; }
+      .stat { padding: 11px; }
+      .stat b { font-size: 20px; }
+      .stat span { font-size: 12px; }
+      .nav-inner { padding: 8px 14px; }
+      .nav a, .map-btn, button.filter { padding: 9px 11px; font-size: 13px; }
+      .day-head { padding: 15px; }
+      .timeline { padding: 10px 15px 15px; }
       .slot { grid-template-columns: 1fr; }
-      .time { font-size: 14px; }
-      .day-head { display:grid; }
+      .time { font-size: 13px; }
+      .item h4 { font-size: 16px; line-height: 1.35; }
+      .actions .map-btn { width: 100%; justify-content: center; }
+      .badge { justify-self: start; }
     }
   </style>
 </head>
