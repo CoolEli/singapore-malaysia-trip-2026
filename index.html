@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>新马旅行攻略 · 2026.08.06-08.16</title>
+  <meta name="description" content="深圳-槟城-新加坡-马六甲-吉隆坡 11天旅行攻略，含小时级行程、住宿、美食、交通和 Google Maps 导航。" />
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f3ea;
+      --paper: #fffaf0;
+      --ink: #19201d;
+      --muted: #667067;
+      --line: rgba(25,32,29,.14);
+      --brand: #116149;
+      --brand-2: #c45b28;
+      --brand-3: #1c5e91;
+      --soft: #e9dfcc;
+      --shadow: 0 20px 60px rgba(25,32,29,.12);
+      --radius: 18px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      background:
+        radial-gradient(circle at 8% 4%, rgba(196,91,40,.16), transparent 28rem),
+        radial-gradient(circle at 90% 0%, rgba(17,97,73,.13), transparent 26rem),
+        var(--bg);
+      color: var(--ink);
+    }
+    a { color: inherit; }
+    .shell { max-width: 1180px; margin: 0 auto; padding: 24px; }
+    .hero {
+      min-height: 76vh;
+      display: grid;
+      align-items: end;
+      padding: 36px 0 24px;
+    }
+    .hero-inner {
+      display: grid;
+      gap: 28px;
+      grid-template-columns: minmax(0, 1.15fr) minmax(320px, .85fr);
+      align-items: end;
+    }
+    h1 {
+      font-size: clamp(44px, 8vw, 104px);
+      line-height: .92;
+      margin: 0;
+      letter-spacing: 0;
+      max-width: 900px;
+    }
+    .subtitle { font-size: clamp(17px, 2.1vw, 24px); color: var(--muted); max-width: 760px; line-height: 1.5; margin: 18px 0 0; }
+    .hero-card, .card {
+      background: color-mix(in srgb, var(--paper) 92%, transparent);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .hero-card { padding: 22px; display: grid; gap: 18px; }
+    .stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .stat { padding: 14px; background: rgba(255,255,255,.42); border: 1px solid var(--line); border-radius: 14px; }
+    .stat b { display:block; font-size: 25px; color: var(--brand); }
+    .stat span { color: var(--muted); font-size: 13px; }
+    .nav { position: sticky; top: 0; z-index: 10; backdrop-filter: blur(16px); background: rgba(247,243,234,.82); border-block: 1px solid var(--line); }
+    .nav-inner { max-width: 1180px; margin: 0 auto; padding: 10px 24px; display: flex; gap: 8px; overflow-x: auto; }
+    .nav a, .map-btn, button.filter {
+      text-decoration: none;
+      border: 1px solid var(--line);
+      background: rgba(255,250,240,.72);
+      border-radius: 999px;
+      padding: 9px 13px;
+      white-space: nowrap;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    .map-btn { display: inline-flex; align-items: center; gap: 6px; color: var(--brand); font-weight: 650; }
+    .section { padding: 42px 0; }
+    .section h2 { font-size: clamp(28px, 4.2vw, 52px); margin: 0 0 18px; letter-spacing: 0; }
+    .route-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .city-card { padding: 18px; min-height: 170px; display: grid; align-content: space-between; }
+    .city-card h3 { margin: 0; font-size: 22px; }
+    .city-card p { color: var(--muted); line-height: 1.55; margin: 8px 0 14px; }
+    .filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+    button.filter.active { background: var(--brand); color: #fffaf0; border-color: var(--brand); }
+    .days { display: grid; gap: 18px; }
+    .day { padding: 0; overflow: hidden; }
+    .day-head { padding: 18px 20px; display: flex; gap: 16px; justify-content: space-between; align-items: flex-start; border-bottom: 1px solid var(--line); background: rgba(255,255,255,.32); }
+    .day-head h3 { margin: 0; font-size: 23px; }
+    .day-head p { margin: 5px 0 0; color: var(--muted); line-height: 1.4; }
+    .badge { border-radius: 999px; padding: 7px 10px; background: rgba(17,97,73,.11); color: var(--brand); font-weight: 650; white-space: nowrap; font-size: 13px; }
+    .timeline { padding: 14px 20px 20px; display: grid; gap: 0; }
+    .slot { display: grid; grid-template-columns: 92px 1fr; gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+    .slot:last-child { border-bottom: 0; }
+    .time { color: var(--brand-3); font-weight: 750; font-variant-numeric: tabular-nums; }
+    .item h4 { margin: 0 0 6px; font-size: 17px; }
+    .item p { margin: 0 0 10px; color: var(--muted); line-height: 1.52; }
+    .actions { display: flex; flex-wrap: wrap; gap: 8px; }
+    .type { display:inline-block; font-size: 12px; color: var(--brand-2); font-weight: 750; margin-right: 6px; }
+    .hotel-grid, .tips-grid { display:grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .info-card { padding: 18px; }
+    .info-card h3 { margin:0 0 8px; }
+    .info-card p, .info-card li { color: var(--muted); line-height: 1.55; }
+    .info-card ul { margin: 8px 0 0; padding-left: 20px; }
+    .budget { font-size: 24px; font-weight: 800; color: var(--brand); }
+    .footer { padding: 28px 0 48px; color: var(--muted); }
+    @media (max-width: 860px) {
+      .shell { padding: 18px; }
+      .hero-inner, .route-grid, .hotel-grid, .tips-grid { grid-template-columns: 1fr; }
+      .hero { min-height: auto; padding-top: 24px; }
+      .slot { grid-template-columns: 78px 1fr; gap: 10px; }
+      .stats { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 430px) {
+      .slot { grid-template-columns: 1fr; }
+      .time { font-size: 14px; }
+      .day-head { display:grid; }
+    }
+  </style>
+</head>
+<body>
+  <header class="shell hero" id="top">
+    <div class="hero-inner">
+      <div>
+        <h1>新马 11 天旅行攻略</h1>
+        <p class="subtitle">深圳出发，经槟城、新加坡、马六甲、吉隆坡。按你的兴趣点重排到小时级：乔治市、升旗山、极乐寺、新加坡市区、环球影城、夜车马六甲、吉隆坡收尾。</p>
+      </div>
+      <aside class="hero-card">
+        <div class="stats">
+          <div class="stat"><b>8/6-8/16</b><span>完整日期</span></div>
+          <div class="stat"><b>4 城</b><span>槟城 / 新加坡 / 马六甲 / 吉隆坡</span></div>
+          <div class="stat"><b>3 晚</b><span>新加坡住宿压缩</span></div>
+          <div class="stat"><b>23:00</b><span>8/11 夜车去马六甲</span></div>
+        </div>
+        <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Spacepod%40SG%20Singapore" target="_blank" rel="noopener">新加坡主住宿导航</a>
+      </aside>
+    </div>
+  </header>
+
+  <nav class="nav"><div class="nav-inner">
+    <a href="#route">路线</a><a href="#hotels">住宿</a><a href="#timeline">小时行程</a><a href="#border">夜车/出入境</a><a href="#tips">提醒</a>
+  </div></nav>
+
+  <main class="shell">
+    <section class="section" id="route">
+      <h2>路线骨架</h2>
+      <div class="route-grid">
+        <article class="card city-card"><h3>槟城</h3><p>乔治市老城一整天，第二天早起去极乐寺和升旗山，晚上飞新加坡。</p><a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=George%20Town%20Penang" target="_blank" rel="noopener">地图</a></article>
+        <article class="card city-card"><h3>新加坡</h3><p>Kallang 郊区地铁住宿，8/9 市区，8/10 环球，8/11 滨海湾后夜车。</p><a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Kallang%20Singapore" target="_blank" rel="noopener">地图</a></article>
+        <article class="card city-card"><h3>马六甲</h3><p>8/12 凌晨抵达先补觉，下午红屋和古城，晚上河边散步。</p><a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Jonker%20Street%20Melaka" target="_blank" rel="noopener">地图</a></article>
+        <article class="card city-card"><h3>吉隆坡</h3><p>8/13 入城，8/14 黑风洞和 KLCC，8/15 博物馆购物，8/16 返程。</p><a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Bukit%20Bintang%20Kuala%20Lumpur" target="_blank" rel="noopener">地图</a></article>
+      </div>
+    </section>
+
+    <section class="section" id="hotels">
+      <h2>住宿与预算</h2>
+      <div class="hotel-grid">
+        <article class="card info-card"><h3>槟城 8/6-8/8</h3><div class="budget">RM180/晚内</div><p><a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Kimberley%20Hotel%20Georgetown%20Penang" target="_blank" rel="noopener">Kimberley Hotel Georgetown</a></p><p>老城核心，夜市、壁画街、姓氏桥都顺。</p></article>
+        <article class="card info-card"><h3>新加坡 8/8-8/11</h3><div class="budget">RMB400/晚/两人</div><p><a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Spacepod%40SG%20Singapore" target="_blank" rel="noopener">Spacepod@SG</a></p><p>Kallang，靠 MRT，愿意坐地铁后性价比更好。</p></article>
+        <article class="card info-card"><h3>马六甲 8/11-8/13</h3><div class="budget">RM220/晚内</div><p><a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=JonkeRED%20Heritage%20Hotel%20Melaka" target="_blank" rel="noopener">JonkeRED Heritage Hotel</a></p><p>必须按 8/11 入住订，备注 8/12 凌晨到。</p></article>
+        <article class="card info-card"><h3>吉隆坡 8/13-8/16</h3><div class="budget">RM260/晚内</div><p><a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Hotel%20Capitol%20Kuala%20Lumpur" target="_blank" rel="noopener">Hotel Capitol Kuala Lumpur</a></p><p>Bukit Bintang 核心，吃饭购物收尾方便。</p></article>
+      </div>
+    </section>
+
+    <section class="section" id="timeline">
+      <h2>小时级行程</h2>
+      <div class="filters" role="group" aria-label="按城市筛选">
+        <button class="filter active" data-filter="all">全部</button>
+        <button class="filter" data-filter="penang">槟城</button>
+        <button class="filter" data-filter="singapore">新加坡</button>
+        <button class="filter" data-filter="melaka">马六甲</button>
+        <button class="filter" data-filter="kl">吉隆坡</button>
+      </div>
+      <div class="days" id="days"></div>
+    </section>
+
+    <section class="section" id="border">
+      <h2>夜车与出入境</h2>
+      <div class="tips-grid">
+        <article class="card info-card"><h3>8/11 夜车</h3><ul><li>优先查 Starmart / Golden Coach / 707。</li><li>出发地优先 Golden Mile Tower。</li><li>目标班次 23:00 左右，保留 20:00 喷泉。</li></ul><a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Golden%20Mile%20Tower%20Singapore" target="_blank" rel="noopener">上车点导航</a></article>
+        <article class="card info-card"><h3>过关流程</h3><ul><li>新加坡出境下车。</li><li>马来西亚入境一般需带全部行李。</li><li>回车前确认车牌和运营商。</li></ul></article>
+        <article class="card info-card"><h3>入境文件</h3><ul><li>8/8 入境新加坡前填 SG Arrival Card。</li><li>8/12 陆路再入马来西亚前重新填 MDAC。</li><li>准备马六甲酒店订单和 8/16 返程机票。</li></ul></article>
+      </div>
+    </section>
+
+    <section class="section" id="tips">
+      <h2>执行提醒</h2>
+      <div class="tips-grid">
+        <article class="card info-card"><h3>票务</h3><p>提前买环球影城门票；8/10 营业时间以 RWS 官方日历为准。8/11 夜车越早锁越好。</p></article>
+        <article class="card info-card"><h3>行李</h3><p>8/8 槟城退房后寄存行李；8/11 新加坡退房后寄存行李，晚上取回去车站。</p></article>
+        <article class="card info-card"><h3>节奏</h3><p>8/12 凌晨到马六甲，上午只睡觉，不硬排景点。8/16 吉隆坡不要跑远。</p></article>
+      </div>
+    </section>
+
+    <footer class="footer">路线为出发前参考坐标，实际执行以天气、开放时间、实时交通和体力为准。</footer>
+  </main>
+
+  <script>
+    const days = [
+      {city:'penang', title:'8/6 周四 · 深圳到槟城', note:'两段航班，落地后只宵夜', slots:[
+        ['08:30-09:30','深圳机场值机','SZX T3，提前到达，亚航无餐食可自备。','transport','深圳宝安国际机场 T3'],
+        ['11:25-15:35','深圳飞吉隆坡 AK127','抵达 KUL T2 后办理转机。','transport','Kuala Lumpur International Airport Terminal 2'],
+        ['19:15-19:53','吉隆坡飞槟城 AK6128','到槟城后 Grab 去 George Town。','transport','Penang International Airport'],
+        ['21:00-22:00','入住 Kimberley Hotel Georgetown','老城区位置，方便第二天步行。','hotel','Kimberley Hotel Georgetown Penang'],
+        ['22:00-23:00','Chulia Street 夜市','第一晚轻松吃，不再跑景点。','food','Chulia Street Night Hawker Stalls Penang']
+      ]},
+      {city:'penang', title:'8/7 周五 · 乔治市老城', note:'侨生博物馆、姓氏桥、壁画街、小印度、夜市', slots:[
+        ['08:00-09:00','Toh Soon Cafe 早餐','咖椰吐司和咖啡，排队长就外带。','food','Toh Soon Cafe Penang'],
+        ['09:30-10:45','侨生博物馆','了解峇峇娘惹文化，室内适合避暑。','spot','Pinang Peranakan Mansion Penang'],
+        ['10:45-11:30','小印度','步行街区，顺看香料店和寺庙外观。','spot','Little India George Town Penang'],
+        ['12:00-13:00','Hameediyah 午餐','槟城老牌印度穆斯林餐。','food','Hameediyah Restaurant Penang'],
+        ['13:15-14:00','邱公司','乔治市经典宗祠建筑。','spot','Khoo Kongsi Penang'],
+        ['14:00-15:15','壁画街','拍照主线，别在每个点排太久。','spot','Penang Street Art George Town'],
+        ['15:15-16:00','姓氏桥','水上聚落，傍晚光线更柔。','spot','Chew Jetty Penang'],
+        ['18:00-20:00','New Lane Hawker Centre','晚餐夜市，炒粿条、粿汁、蚝煎。','food','New Lane Hawker Centre Penang']
+      ]},
+      {city:'penang', title:'8/8 周六 · 极乐寺与升旗山后飞新加坡', note:'行李寄存酒店，下午去机场', slots:[
+        ['07:45-08:15','退房寄存行李','不要带箱子去升旗山。','hotel','Kimberley Hotel Georgetown Penang'],
+        ['08:45-10:15','极乐寺','早去避热，拍照和参观更舒服。','spot','Kek Lok Si Temple Penang'],
+        ['10:30-13:00','升旗山','缆车上山，天气不好就缩短。','spot','Penang Hill Penang'],
+        ['13:30-14:30','Air Itam Assam Laksa 午餐','靠近极乐寺/升旗山区域，顺路。','food','Air Itam Assam Laksa Penang'],
+        ['15:15-16:00','前往槟城机场','回酒店取行李后 Grab 去机场。','transport','Penang International Airport'],
+        ['19:35-20:50','槟城飞新加坡 AK1729','到 T4 后直接去 Kallang。','transport','Changi Airport Terminal 4'],
+        ['22:00-23:00','入住 Spacepod@SG','新加坡预算住宿主选。','hotel','Spacepod@SG Singapore']
+      ]},
+      {city:'singapore', title:'8/9 周日 · 新加坡市区与博物馆', note:'国庆日，避开夜间核心人潮', slots:[
+        ['08:00-09:00','Ya Kun 早餐','简单快速，MRT 进 City Hall。','food','Ya Kun Kaya Toast Singapore'],
+        ['09:30-12:30','National Gallery Singapore','当天主要室内项目。','spot','National Gallery Singapore'],
+        ['12:30-13:30','Lau Pa Sat 午餐','市政区到金融区顺路。','food','Lau Pa Sat Singapore'],
+        ['13:30-14:30','鱼尾狮公园','国庆日人多，拍照后走。','spot','Merlion Park Singapore'],
+        ['14:30-16:30','Esplanade / CHIJMES / Raffles 外观','轻量步行线。','spot','CHIJMES Singapore'],
+        ['18:30-20:00','Maxwell Food Centre 晚餐','鸡饭、小吃集中。','food','Maxwell Food Centre Singapore'],
+        ['20:00 后','回 Spacepod@SG','避免国庆日晚间交通管制。','hotel','Spacepod@SG Singapore']
+      ]},
+      {city:'singapore', title:'8/10 周一 · 环球影城', note:'环球当晚必须住新加坡', slots:[
+        ['07:45-08:30','Kallang 到 HarbourFront','MRT 到 VivoCity，再进圣淘沙。','transport','HarbourFront MRT Singapore'],
+        ['09:00-09:45','抵达环球入口','寄存、买水、等开园。','spot','Universal Studios Singapore'],
+        ['10:00-12:30','热门项目第一轮','Transformers / Mummy / Battlestar 优先。','spot','Universal Studios Singapore'],
+        ['12:30-13:30','园内午餐','不出园，节省时间。','food','Universal Studios Singapore Restaurants'],
+        ['13:30-19:30','继续游玩和拍照','Minion Land、表演、补项目。','spot','Universal Studios Singapore'],
+        ['20:30-21:30','回 Spacepod@SG 休息','第二天退房夜车，别熬太晚。','hotel','Spacepod@SG Singapore']
+      ]},
+      {city:'singapore', title:'8/11 周二 · 滨海湾后夜车马六甲', note:'不住新加坡，23:00 左右夜车', slots:[
+        ['09:00-10:00','退房寄存行李','晚上取行李去车站。','hotel','Spacepod@SG Singapore'],
+        ['10:30-12:30','滨海湾花园','Cloud Forest / Flower Dome 视预算选择。','spot','Gardens by the Bay Singapore'],
+        ['12:30-13:30','Satay by the Bay 午餐','景区内顺路。','food','Satay by the Bay Singapore'],
+        ['13:30-15:30','ArtScience Museum','博物馆安排在下午，避暑。','spot','ArtScience Museum Singapore'],
+        ['17:00-18:15','Makansutra 晚餐','看喷泉前补充能量。','food','Makansutra Gluttons Bay Singapore'],
+        ['20:00-20:15','Spectra 喷泉','看 20:00 场，留足去车站时间。','spot','Spectra Marina Bay Sands Singapore'],
+        ['20:45-22:15','Golden Mile Tower 候车','取票、整理证件、吃简餐。','transport','Golden Mile Tower Singapore'],
+        ['23:00-04:00','夜车去马六甲','以实际车票为准，过关可能延误。','transport','Melaka Sentral']
+      ]},
+      {city:'melaka', title:'8/12 周三 · 凌晨到马六甲后古城', note:'上午补觉，下午老城', slots:[
+        ['03:30-05:00','抵达并入住 JonkeRED','酒店按 8/11 入住预订。','hotel','JonkeRED Heritage Hotel Melaka'],
+        ['05:00-10:30','补觉','夜车后不要硬撑。','hotel','JonkeRED Heritage Hotel Melaka'],
+        ['10:30-11:30','The Daily Fix Cafe','慢早餐/早午餐。','food','The Daily Fix Cafe Melaka'],
+        ['12:30-13:30','Hoe Kee 鸡饭粒','靠近鸡场街，顺路。','food','Hoe Kee Chicken Rice Ball Melaka'],
+        ['13:30-16:30','红屋、基督堂、圣保罗山、A Famosa','马六甲经典步行线。','spot','Dutch Square Melaka'],
+        ['18:00-19:30','Jonker Street','傍晚逛街。','spot','Jonker Street Melaka'],
+        ['19:30-21:30','Nancy’s Kitchen + 河边散步','娘惹菜后走 Melaka River。','food','Nancy\'s Kitchen Melaka']
+      ]},
+      {city:'kl', title:'8/13 周四 · 马六甲到吉隆坡', note:'下午独立广场和茨厂街', slots:[
+        ['09:00-09:30','前往 Melaka Sentral','Grab 从酒店出发。','transport','Melaka Sentral'],
+        ['10:00-12:30','大巴到吉隆坡 TBS','建议提前买票。','transport','Terminal Bersepadu Selatan Kuala Lumpur'],
+        ['13:30-14:30','Lai Foong Lala Noodles','到 KL 后第一餐。','food','Lai Foong Lala Noodles Kuala Lumpur'],
+        ['14:30-17:30','独立广场、苏丹楼、中央艺术坊、茨厂街','一条线步行+短途 Grab。','spot','Merdeka Square Kuala Lumpur'],
+        ['18:00-19:00','入住 Hotel Capitol KL','Bukit Bintang 核心。','hotel','Hotel Capitol Kuala Lumpur'],
+        ['19:00-20:30','Jalan Alor 晚餐','夜市补给，离酒店近。','food','Jalan Alor Food Street Kuala Lumpur']
+      ]},
+      {city:'kl', title:'8/14 周五 · 黑风洞与 KLCC', note:'早去黑风洞，晚上喷泉', slots:[
+        ['07:00-10:00','Batu Caves 黑风洞','早去避热避人。','spot','Batu Caves Kuala Lumpur'],
+        ['11:00-12:00','Nirwana Banana Leaf 午餐','香蕉叶饭。','food','Nirwana Banana Leaf Bangsar'],
+        ['14:00-16:30','双子塔','外观/观景台视票务选择。','spot','Petronas Twin Towers Kuala Lumpur'],
+        ['16:30-18:00','Suria KLCC','商场休息。','spot','Suria KLCC'],
+        ['20:00-20:30','Lake Symphony 喷泉','吉隆坡夜景收尾。','spot','Lake Symphony KLCC']
+      ]},
+      {city:'kl', title:'8/15 周六 · 吉隆坡文化与购物', note:'博物馆、清真寺、Pavilion、TRX', slots:[
+        ['10:00-11:30','Islamic Arts Museum Malaysia','室内质量高。','spot','Islamic Arts Museum Malaysia'],
+        ['11:30-12:00','国家清真寺外观/参观','注意着装和开放时段。','spot','National Mosque Malaysia'],
+        ['14:00-16:30','Pavilion Kuala Lumpur','购物和伴手礼。','spot','Pavilion Kuala Lumpur'],
+        ['16:30-18:00','The Exchange TRX','新商场，适合补逛。','spot','The Exchange TRX Kuala Lumpur'],
+        ['18:00-19:00','Lot 10 Hutong 晚餐','集中吃本地小吃。','food','Lot 10 Hutong Kuala Lumpur']
+      ]},
+      {city:'kl', title:'8/16 周日 · 吉隆坡收尾返深', note:'不跑远，22:05 飞深圳', slots:[
+        ['09:30-11:30','整理行李、酒店周边散步','慢节奏收尾。','hotel','Hotel Capitol Kuala Lumpur'],
+        ['12:30-13:30','Ah Hei Bak Kut Teh 午餐','最后一餐肉骨茶。','food','Ah Hei Bak Kut Teh Kuala Lumpur'],
+        ['13:30-16:00','Pavilion / TRX 伴手礼','不安排远点。','spot','Pavilion Kuala Lumpur'],
+        ['17:00-18:00','前往 KUL T2','给亚航国际段留足时间。','transport','Kuala Lumpur International Airport Terminal 2'],
+        ['22:05-02:15','吉隆坡飞深圳 AK128','8/17 凌晨到深圳。','transport','Shenzhen Baoan International Airport T3']
+      ]}
+    ];
+    const daysEl = document.getElementById('days');
+    const mapUrl = q => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}`;
+    const typeLabel = {hotel:'住宿', food:'美食', spot:'景点', transport:'交通'};
+    function render(filter='all') {
+      daysEl.innerHTML = days.filter(d => filter === 'all' || d.city === filter).map(d => `
+        <article class="card day" data-city="${d.city}">
+          <div class="day-head"><div><h3>${d.title}</h3><p>${d.note}</p></div><span class="badge">${d.city === 'penang' ? '槟城' : d.city === 'singapore' ? '新加坡' : d.city === 'melaka' ? '马六甲' : '吉隆坡'}</span></div>
+          <div class="timeline">
+            ${d.slots.map(s => `<div class="slot"><div class="time">${s[0]}</div><div class="item"><h4><span class="type">${typeLabel[s[3]]}</span>${s[1]}</h4><p>${s[2]}</p><div class="actions"><a class="map-btn" href="${mapUrl(s[4])}" target="_blank" rel="noopener">Google Maps 导航</a></div></div></div>`).join('')}
+          </div>
+        </article>`).join('');
+    }
+    document.querySelectorAll('button.filter').forEach(btn => btn.addEventListener('click', () => {
+      document.querySelectorAll('button.filter').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      render(btn.dataset.filter);
+    }));
+    render();
+  </script>
+</body>
+</html>
