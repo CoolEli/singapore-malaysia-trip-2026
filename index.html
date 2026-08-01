@@ -116,6 +116,9 @@
     .info-card p, .info-card li { color: var(--muted); line-height: 1.55; }
     .info-card ul { margin: 8px 0 0; padding-left: 20px; }
     .budget { font-size: 24px; font-weight: 800; color: var(--brand); }
+    .hotel-note { display: grid; gap: 7px; margin-top: 10px; }
+    .hotel-note div { color: var(--muted); line-height: 1.45; }
+    .hotel-note b { color: var(--ink); }
     .footer { padding: 28px 0 48px; color: var(--muted); }
     @media (max-width: 860px) {
       .shell { padding: 18px; }
@@ -184,12 +187,12 @@
     </section>
 
     <section class="section" id="hotels">
-      <h2>住宿与预算</h2>
+      <h2>住宿建议</h2>
       <div class="hotel-grid">
-        <article class="card info-card"><h3>槟城 8/6-8/8</h3><div class="budget">RM180/晚内</div><p><a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Kimberley%20Hotel%20Georgetown%20Penang" target="_blank" rel="noopener">Kimberley Hotel Georgetown</a></p><p>老城核心，夜市、壁画街、姓氏桥都顺。</p></article>
-        <article class="card info-card"><h3>新加坡 8/8-8/11</h3><div class="budget">RMB400/晚/两人</div><p><a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Spacepod%40SG%20Singapore" target="_blank" rel="noopener">Spacepod@SG</a></p><p>Kallang，靠 MRT，愿意坐地铁后性价比更好。</p></article>
-        <article class="card info-card"><h3>马六甲 8/11-8/13</h3><div class="budget">RM220/晚内</div><p><a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=JonkeRED%20Heritage%20Hotel%20Melaka" target="_blank" rel="noopener">JonkeRED Heritage Hotel</a></p><p>必须按 8/11 入住订，备注 8/12 凌晨到。</p></article>
-        <article class="card info-card"><h3>吉隆坡 8/13-8/16</h3><div class="budget">RM260/晚内</div><p><a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Hotel%20Capitol%20Kuala%20Lumpur" target="_blank" rel="noopener">Hotel Capitol Kuala Lumpur</a></p><p>Bukit Bintang 核心，吃饭购物收尾方便。</p></article>
+        <article class="card info-card"><h3>槟城 8/6-8/8</h3><div class="budget">George Town 老城</div><div class="hotel-note"><div><b>主选：</b><a class="mini-map" href="https://www.google.com/maps/search/?api=1&query=Kimberley%20Hotel%20Georgetown%20Penang" target="_blank" rel="noopener">Kimberley Hotel Georgetown</a>，目标 RM180/晚内。</div><div><b>备选：</b>The Frame Guesthouse / Rope Walk Guest House。</div><div><b>理由：</b>夜市、壁画街、侨生博物馆、姓氏桥都能低成本步行或短途 Grab。</div><div><b>注意：</b>8/8 退房后确认可寄存行李到 15:00。</div></div></article>
+        <article class="card info-card"><h3>新加坡 8/8-8/11</h3><div class="budget">Kallang / MRT 周边</div><div class="hotel-note"><div><b>主选：</b><a class="mini-map" href="https://www.google.com/maps/search/?api=1&query=Spacepod%40SG%20Singapore" target="_blank" rel="noopener">Spacepod@SG</a>，目标 RMB400/晚/两人。</div><div><b>备选：</b>7 Wonders Upper Dickson / CapsulePod@Aljunied / Rucksack Inn Tyrwhitt。</div><div><b>理由：</b>不死磕市中心，坐地铁换取更低住宿价；去 City Hall、Bayfront、HarbourFront 都可接受。</div><div><b>注意：</b>重点看近期卫生、行李柜、空调、离 MRT 步行距离。</div></div></article>
+        <article class="card info-card"><h3>马六甲 8/11-8/13</h3><div class="budget">Jonker / 红屋附近</div><div class="hotel-note"><div><b>主选：</b><a class="mini-map" href="https://www.google.com/maps/search/?api=1&query=JonkeRED%20Heritage%20Hotel%20Melaka" target="_blank" rel="noopener">JonkeRED Heritage Hotel</a>，目标 RM220/晚内。</div><div><b>备选：</b>TheBlanc Boutique Hotel / Hatten Hotel Melaka。</div><div><b>理由：</b>凌晨到达后少折腾，下午红屋、鸡场街、马六甲河都能步行。</div><div><b>注意：</b>必须按 8/11 入住订，并提前备注 8/12 凌晨到店。</div></div></article>
+        <article class="card info-card"><h3>吉隆坡 8/13-8/16</h3><div class="budget">Bukit Bintang</div><div class="hotel-note"><div><b>主选：</b><a class="mini-map" href="https://www.google.com/maps/search/?api=1&query=Hotel%20Capitol%20Kuala%20Lumpur" target="_blank" rel="noopener">Hotel Capitol Kuala Lumpur</a>，目标 RM260/晚内。</div><div><b>备选：</b>Travelodge Bukit Bintang / MOV Hotel / Mingle KL。</div><div><b>理由：</b>Jalan Alor、Pavilion、TRX、地铁都近，最后几天少换乘、少拖行李。</div><div><b>注意：</b>8/16 晚班机，优先确认退房后可寄存行李。</div></div></article>
       </div>
     </section>
 
@@ -236,9 +239,9 @@
         ['22:00-23:00','Chulia Street 夜市','第一晚轻松吃，不再跑景点。','food','Chulia Street Night Hawker Stalls Penang']
       ]},
       {city:'penang', title:'8/7 周五 · 乔治市老城', note:'侨生博物馆、姓氏桥、壁画街、小印度、夜市', slots:[
-        ['08:00-09:00','Toh Soon Cafe 早餐','咖椰吐司和咖啡，排队长就外带。','food','Toh Soon Cafe Penang'],
-        ['09:30-10:45','侨生博物馆','了解峇峇娘惹文化，室内适合避暑。','spot','Pinang Peranakan Mansion Penang'],
-        ['10:45-11:30','小印度','步行街区，顺看香料店和寺庙外观。','spot','Little India George Town Penang'],
+        ['09:00-09:50','Toh Soon Cafe 早餐','咖椰吐司和咖啡，排队长就外带。','food','Toh Soon Cafe Penang'],
+        ['10:00-11:15','侨生博物馆','了解峇峇娘惹文化，室内适合避暑。','spot','Pinang Peranakan Mansion Penang'],
+        ['11:15-12:00','小印度','步行街区，顺看香料店和寺庙外观。','spot','Little India George Town Penang'],
         ['12:00-13:00','Hameediyah 午餐','槟城老牌印度穆斯林餐。','food','Hameediyah Restaurant Penang'],
         ['13:15-14:00','邱公司','乔治市经典宗祠建筑。','spot','Khoo Kongsi Penang'],
         ['14:00-15:15','壁画街','拍照主线，别在每个点排太久。','spot','Penang Street Art George Town'],
@@ -246,17 +249,17 @@
         ['18:00-20:00','New Lane Hawker Centre','晚餐夜市，炒粿条、粿汁、蚝煎。','food','New Lane Hawker Centre Penang']
       ]},
       {city:'penang', title:'8/8 周六 · 极乐寺与升旗山后飞新加坡', note:'行李寄存酒店，下午去机场', slots:[
-        ['07:45-08:15','退房寄存行李','不要带箱子去升旗山。','hotel','Kimberley Hotel Georgetown Penang'],
-        ['08:45-10:15','极乐寺','早去避热，拍照和参观更舒服。','spot','Kek Lok Si Temple Penang'],
-        ['10:30-13:00','升旗山','缆车上山，天气不好就缩短。','spot','Penang Hill Penang'],
-        ['13:30-14:30','Air Itam Assam Laksa 午餐','靠近极乐寺/升旗山区域，顺路。','food','Air Itam Assam Laksa Penang'],
-        ['15:15-16:00','前往槟城机场','回酒店取行李后 Grab 去机场。','transport','Penang International Airport'],
+        ['08:45-09:25','退房寄存行李','不要带箱子去升旗山。','hotel','Kimberley Hotel Georgetown Penang'],
+        ['10:00-11:25','极乐寺','正式游览从 10:00 开始，重点看主殿和高处视野。','spot','Kek Lok Si Temple Penang'],
+        ['11:40-13:40','升旗山','缆车上山，天气不好就缩短。','spot','Penang Hill Penang'],
+        ['14:00-15:00','Air Itam Assam Laksa 午餐','靠近极乐寺/升旗山区域，顺路。','food','Air Itam Assam Laksa Penang'],
+        ['15:00-16:00','取行李并前往槟城机场','回酒店取行李后 Grab 去机场。','transport','Penang International Airport'],
         ['19:35-20:50','槟城飞新加坡 AK1729','到 T4 后直接去 Kallang。','transport','Changi Airport Terminal 4'],
         ['22:00-23:00','入住 Spacepod@SG','新加坡预算住宿主选。','hotel','Spacepod@SG Singapore']
       ]},
       {city:'singapore', title:'8/9 周日 · 新加坡市区与博物馆', note:'国庆日，避开夜间核心人潮', slots:[
-        ['08:00-09:00','Ya Kun 早餐','简单快速，MRT 进 City Hall。','food','Ya Kun Kaya Toast Singapore'],
-        ['09:30-12:30','National Gallery Singapore','当天主要室内项目。','spot','National Gallery Singapore'],
+        ['09:00-09:45','Ya Kun 早餐','简单快速，MRT 进 City Hall。','food','Ya Kun Kaya Toast Singapore'],
+        ['10:00-12:30','National Gallery Singapore','当天主要室内项目，正式游览从 10:00 开始。','spot','National Gallery Singapore'],
         ['12:30-13:30','Lau Pa Sat 午餐','市政区到金融区顺路。','food','Lau Pa Sat Singapore'],
         ['13:30-14:30','鱼尾狮公园','国庆日人多，拍照后走。','spot','Merlion Park Singapore'],
         ['14:30-16:30','Esplanade / CHIJMES / Raffles 外观','轻量步行线。','spot','CHIJMES Singapore'],
@@ -298,11 +301,12 @@
         ['18:00-19:00','入住 Hotel Capitol KL','Bukit Bintang 核心。','hotel','Hotel Capitol Kuala Lumpur'],
         ['19:00-20:30','Jalan Alor 晚餐','夜市补给，离酒店近。','food','Jalan Alor Food Street Kuala Lumpur']
       ]},
-      {city:'kl', title:'8/14 周五 · 黑风洞与 KLCC', note:'早去黑风洞，晚上喷泉', slots:[
-        ['07:00-10:00','Batu Caves 黑风洞','早去避热避人。','spot','Batu Caves Kuala Lumpur'],
-        ['11:00-12:00','Nirwana Banana Leaf 午餐','香蕉叶饭。','food','Nirwana Banana Leaf Bangsar'],
-        ['14:00-16:30','双子塔','外观/观景台视票务选择。','spot','Petronas Twin Towers Kuala Lumpur'],
-        ['16:30-18:00','Suria KLCC','商场休息。','spot','Suria KLCC'],
+      {city:'kl', title:'8/14 周五 · 黑风洞与 KLCC', note:'10点开始黑风洞，晚上喷泉', slots:[
+        ['09:00-10:00','早餐与前往黑风洞','正式游览仍从 10:00 开始，早上只做转场。','transport','Batu Caves Kuala Lumpur'],
+        ['10:00-12:00','Batu Caves 黑风洞','比早去更热一些，带水和防晒，节奏放慢。','spot','Batu Caves Kuala Lumpur'],
+        ['12:45-13:45','Nirwana Banana Leaf 午餐','香蕉叶饭。','food','Nirwana Banana Leaf Bangsar'],
+        ['15:00-16:45','双子塔','外观/观景台视票务选择。','spot','Petronas Twin Towers Kuala Lumpur'],
+        ['16:45-18:00','Suria KLCC','商场休息。','spot','Suria KLCC'],
         ['20:00-20:30','Lake Symphony 喷泉','吉隆坡夜景收尾。','spot','Lake Symphony KLCC']
       ]},
       {city:'kl', title:'8/15 周六 · 吉隆坡文化与购物', note:'博物馆、清真寺、Pavilion、TRX', slots:[
@@ -313,7 +317,8 @@
         ['18:00-19:00','Lot 10 Hutong 晚餐','集中吃本地小吃。','food','Lot 10 Hutong Kuala Lumpur']
       ]},
       {city:'kl', title:'8/16 周日 · 吉隆坡收尾返深', note:'不跑远，22:05 飞深圳', slots:[
-        ['09:30-11:30','整理行李、酒店周边散步','慢节奏收尾。','hotel','Hotel Capitol Kuala Lumpur'],
+        ['09:30-10:00','早餐与整理行李','不安排游览，先完成收尾准备。','hotel','Hotel Capitol Kuala Lumpur'],
+        ['10:00-11:30','酒店周边轻松散步','当天正式活动从 10:00 开始，保持低强度。','spot','Bukit Bintang Kuala Lumpur'],
         ['12:30-13:30','Ah Hei Bak Kut Teh 午餐','最后一餐肉骨茶。','food','Ah Hei Bak Kut Teh Kuala Lumpur'],
         ['13:30-16:00','Pavilion / TRX 伴手礼','不安排远点。','spot','Pavilion Kuala Lumpur'],
         ['17:00-18:00','前往 KUL T2','给亚航国际段留足时间。','transport','Kuala Lumpur International Airport Terminal 2'],
