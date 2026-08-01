@@ -8,17 +8,17 @@
   <style>
     :root {
       color-scheme: light;
-      --bg: #f7f3ea;
-      --paper: #fffaf0;
-      --ink: #19201d;
-      --muted: #667067;
-      --line: rgba(25,32,29,.14);
-      --brand: #116149;
-      --brand-2: #c45b28;
-      --brand-3: #1c5e91;
-      --soft: #e9dfcc;
-      --shadow: 0 20px 60px rgba(25,32,29,.12);
-      --radius: 18px;
+      --bg: #f5f7f5;
+      --paper: #ffffff;
+      --ink: #15231f;
+      --muted: #64736d;
+      --line: #dce6e1;
+      --brand: #087f68;
+      --brand-2: #e06d3b;
+      --brand-3: #3866a8;
+      --soft: #e8f2ee;
+      --shadow: 0 14px 35px rgba(28,64,52,.08);
+      --radius: 14px;
     }
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
@@ -26,19 +26,16 @@
     body {
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-      background:
-        radial-gradient(circle at 8% 4%, rgba(196,91,40,.16), transparent 28rem),
-        radial-gradient(circle at 90% 0%, rgba(17,97,73,.13), transparent 26rem),
-        var(--bg);
+      background: linear-gradient(180deg, #edf5f1 0, var(--bg) 31rem);
       color: var(--ink);
     }
     a { color: inherit; }
     .shell { max-width: 1180px; margin: 0 auto; padding: 24px; }
     .hero {
-      min-height: 48vh;
+      min-height: 42vh;
       display: grid;
       align-items: end;
-      padding: 36px 0 24px;
+      padding: 42px 0 30px;
     }
     .hero-inner {
       display: grid;
@@ -46,38 +43,42 @@
       grid-template-columns: minmax(0, 1.15fr) minmax(320px, .85fr);
       align-items: end;
     }
+    .eyebrow { display: inline-flex; align-items: center; gap: 8px; color: var(--brand); font-size: 13px; font-weight: 800; margin-bottom: 16px; }
+    .eyebrow::before { content: ''; width: 28px; height: 3px; border-radius: 2px; background: var(--brand-2); }
     h1 {
-      font-size: clamp(44px, 8vw, 104px);
-      line-height: .92;
+      font-size: clamp(42px, 7vw, 88px);
+      line-height: .96;
       margin: 0;
       letter-spacing: 0;
       max-width: 900px;
     }
     .subtitle { font-size: clamp(17px, 2.1vw, 24px); color: var(--muted); max-width: 760px; line-height: 1.5; margin: 18px 0 0; }
     .hero-card, .card {
-      background: color-mix(in srgb, var(--paper) 92%, transparent);
+      background: var(--paper);
       border: 1px solid var(--line);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
     }
-    .hero-card { padding: 22px; display: grid; gap: 18px; }
+    .hero-card { padding: 20px; display: grid; gap: 18px; border-top: 4px solid var(--brand); }
     .stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
-    .stat { padding: 14px; background: rgba(255,255,255,.42); border: 1px solid var(--line); border-radius: 14px; }
+    .stat { padding: 14px; background: #f6faf8; border: 1px solid var(--line); border-radius: 10px; }
     .stat b { display:block; font-size: 25px; color: var(--brand); }
     .stat span { color: var(--muted); font-size: 13px; }
-    .nav { position: sticky; top: 0; z-index: 10; backdrop-filter: blur(16px); background: rgba(247,243,234,.82); border-block: 1px solid var(--line); }
+    .nav { position: sticky; top: 0; z-index: 10; backdrop-filter: blur(16px); background: rgba(245,247,245,.9); border-block: 1px solid var(--line); }
     .nav-inner { max-width: 1180px; margin: 0 auto; padding: 10px 24px; display: flex; gap: 8px; overflow-x: auto; }
     .nav a, .map-btn, button.filter {
       text-decoration: none;
       border: 1px solid var(--line);
-      background: rgba(255,250,240,.72);
-      border-radius: 999px;
+      background: var(--paper);
+      border-radius: 9px;
       padding: 9px 13px;
       white-space: nowrap;
       font-size: 14px;
       cursor: pointer;
       min-height: 42px;
+      transition: transform .18s ease, border-color .18s ease, background .18s ease;
     }
+    .nav a:hover, .map-btn:hover, button.filter:hover { border-color: var(--brand); transform: translateY(-1px); }
     .map-btn { display: inline-flex; align-items: center; gap: 6px; color: var(--brand); font-weight: 650; white-space: normal; overflow-wrap: anywhere; }
     .mini-map {
       color: var(--brand);
@@ -88,30 +89,34 @@
       white-space: nowrap;
       font-size: 13px;
     }
-    .section { padding: 30px 0; }
+    .section { padding: 34px 0; }
     .section h2 { font-size: clamp(28px, 4.2vw, 52px); margin: 0 0 18px; letter-spacing: 0; }
+    .section h2::after { content: ''; display: block; width: 46px; height: 4px; margin-top: 10px; border-radius: 2px; background: var(--brand-2); }
     .route-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
-    .city-card { padding: 16px; min-height: 138px; display: grid; align-content: start; }
+    .city-card { padding: 18px; min-height: 138px; display: grid; align-content: start; border-top: 3px solid var(--brand); }
     .city-card h3 { margin: 0; font-size: 22px; }
     .city-card p { color: var(--muted); line-height: 1.55; margin: 8px 0 14px; }
     .filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
-    button.filter.active { background: var(--brand); color: #fffaf0; border-color: var(--brand); }
+    button.filter.active { background: var(--brand); color: #fff; border-color: var(--brand); }
     .days { display: grid; gap: 12px; }
     .day { padding: 0; overflow: hidden; }
-    .day-head { padding: 14px 18px; display: flex; gap: 16px; justify-content: space-between; align-items: flex-start; border-bottom: 1px solid var(--line); background: rgba(255,255,255,.32); }
+    .day-head { padding: 17px 18px; display: flex; gap: 16px; justify-content: space-between; align-items: flex-start; border-bottom: 1px solid var(--line); background: #f8fbfa; }
     .day-head h3 { margin: 0; font-size: 23px; }
     .day-head p { margin: 5px 0 0; color: var(--muted); line-height: 1.4; }
-    .badge { border-radius: 999px; padding: 7px 10px; background: rgba(17,97,73,.11); color: var(--brand); font-weight: 650; white-space: nowrap; font-size: 13px; }
-    .timeline { padding: 8px 18px 12px; display: grid; gap: 0; }
-    .slot { display: grid; grid-template-columns: 92px 1fr; gap: 12px; padding: 9px 0; border-bottom: 1px solid var(--line); }
+    .badge { border-radius: 7px; padding: 7px 10px; background: var(--soft); color: var(--brand); font-weight: 700; white-space: nowrap; font-size: 13px; }
+    .timeline { padding: 10px 18px 14px; display: grid; gap: 0; }
+    .slot { display: grid; grid-template-columns: 92px 1fr; gap: 14px; padding: 12px 0; border-bottom: 1px solid var(--line); position: relative; }
     .slot:last-child { border-bottom: 0; }
-    .time { color: var(--brand-3); font-weight: 750; font-variant-numeric: tabular-nums; }
-    .item h4 { margin: 0 0 3px; font-size: 16px; line-height: 1.34; }
+    .slot::before { content: ''; position: absolute; left: 96px; top: 0; bottom: 0; width: 1px; background: #d9e8e2; z-index: 0; }
+    .time, .item { position: relative; z-index: 1; }
+    .item::before { content: ''; position: absolute; left: -13px; top: 5px; width: 7px; height: 7px; border-radius: 50%; background: var(--brand); box-shadow: 0 0 0 4px var(--paper); }
+    .time { color: var(--brand-3); font-weight: 800; font-variant-numeric: tabular-nums; padding-top: 1px; }
+    .item h4 { margin: 0 0 4px; font-size: 16px; line-height: 1.34; }
     .item p { margin: 0; color: var(--muted); line-height: 1.42; }
     .actions { display: flex; flex-wrap: wrap; gap: 8px; }
-    .type { display:inline-block; font-size: 12px; color: var(--brand-2); font-weight: 750; margin-right: 6px; }
+    .type { display:inline-block; font-size: 11px; color: var(--brand-2); background: #fff0e9; padding: 3px 6px; border-radius: 5px; font-weight: 800; margin-right: 7px; vertical-align: 1px; }
     .hotel-grid, .tips-grid { display:grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-    .info-card { padding: 16px; }
+    .info-card { padding: 18px; }
     .info-card h3 { margin:0 0 8px; }
     .info-card p, .info-card li { color: var(--muted); line-height: 1.55; }
     .info-card ul { margin: 8px 0 0; padding-left: 20px; }
@@ -125,9 +130,11 @@
       .hero-inner, .route-grid, .hotel-grid, .tips-grid { grid-template-columns: 1fr; }
       .hero { min-height: auto; padding-top: 24px; }
       .slot { grid-template-columns: 78px 1fr; gap: 10px; }
+      .slot::before { left: 82px; }
+      .item::before { left: -9px; }
       .stats { grid-template-columns: repeat(2, 1fr); }
       .hero-card { padding: 18px; }
-      .section { padding: 24px 0; }
+      .section { padding: 26px 0; }
       .section h2 { font-size: 34px; }
       .day-head h3 { font-size: 21px; overflow-wrap: anywhere; }
       .day-head p, .item p, .city-card p, .info-card p, .info-card li { font-size: 15px; }
@@ -146,6 +153,8 @@
       .day-head { padding: 13px; }
       .timeline { padding: 6px 13px 10px; }
       .slot { grid-template-columns: 72px 1fr; gap: 8px; padding: 8px 0; }
+      .slot::before { left: 76px; }
+      .item::before { left: -7px; }
       .time { font-size: 13px; }
       .item h4 { font-size: 16px; line-height: 1.35; }
       .badge { justify-self: start; }
@@ -156,6 +165,7 @@
   <header class="shell hero" id="top">
     <div class="hero-inner">
       <div>
+        <div class="eyebrow">SINGAPORE · MALAYSIA / 2026 SUMMER ROUTE</div>
         <h1>新马 11 天旅行攻略</h1>
         <p class="subtitle">深圳出发，经槟城、新加坡、马六甲、吉隆坡。按你的兴趣点重排到小时级：乔治市、升旗山、极乐寺、新加坡市区、环球影城、夜车马六甲、吉隆坡收尾。</p>
       </div>
