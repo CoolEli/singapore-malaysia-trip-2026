@@ -35,7 +35,7 @@
     a { color: inherit; }
     .shell { max-width: 1180px; margin: 0 auto; padding: 24px; }
     .hero {
-      min-height: 76vh;
+      min-height: 48vh;
       display: grid;
       align-items: end;
       padding: 36px 0 24px;
@@ -79,30 +79,39 @@
       min-height: 42px;
     }
     .map-btn { display: inline-flex; align-items: center; gap: 6px; color: var(--brand); font-weight: 650; white-space: normal; overflow-wrap: anywhere; }
-    .section { padding: 42px 0; }
+    .mini-map {
+      color: var(--brand);
+      font-weight: 750;
+      text-decoration: none;
+      border-bottom: 1px solid color-mix(in srgb, var(--brand) 45%, transparent);
+      margin-left: 8px;
+      white-space: nowrap;
+      font-size: 13px;
+    }
+    .section { padding: 30px 0; }
     .section h2 { font-size: clamp(28px, 4.2vw, 52px); margin: 0 0 18px; letter-spacing: 0; }
     .route-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
-    .city-card { padding: 18px; min-height: 170px; display: grid; align-content: space-between; }
+    .city-card { padding: 16px; min-height: 138px; display: grid; align-content: start; }
     .city-card h3 { margin: 0; font-size: 22px; }
     .city-card p { color: var(--muted); line-height: 1.55; margin: 8px 0 14px; }
     .filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
     button.filter.active { background: var(--brand); color: #fffaf0; border-color: var(--brand); }
-    .days { display: grid; gap: 18px; }
+    .days { display: grid; gap: 12px; }
     .day { padding: 0; overflow: hidden; }
-    .day-head { padding: 18px 20px; display: flex; gap: 16px; justify-content: space-between; align-items: flex-start; border-bottom: 1px solid var(--line); background: rgba(255,255,255,.32); }
+    .day-head { padding: 14px 18px; display: flex; gap: 16px; justify-content: space-between; align-items: flex-start; border-bottom: 1px solid var(--line); background: rgba(255,255,255,.32); }
     .day-head h3 { margin: 0; font-size: 23px; }
     .day-head p { margin: 5px 0 0; color: var(--muted); line-height: 1.4; }
     .badge { border-radius: 999px; padding: 7px 10px; background: rgba(17,97,73,.11); color: var(--brand); font-weight: 650; white-space: nowrap; font-size: 13px; }
-    .timeline { padding: 14px 20px 20px; display: grid; gap: 0; }
-    .slot { display: grid; grid-template-columns: 92px 1fr; gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+    .timeline { padding: 8px 18px 12px; display: grid; gap: 0; }
+    .slot { display: grid; grid-template-columns: 92px 1fr; gap: 12px; padding: 9px 0; border-bottom: 1px solid var(--line); }
     .slot:last-child { border-bottom: 0; }
     .time { color: var(--brand-3); font-weight: 750; font-variant-numeric: tabular-nums; }
-    .item h4 { margin: 0 0 6px; font-size: 17px; }
-    .item p { margin: 0 0 10px; color: var(--muted); line-height: 1.52; }
+    .item h4 { margin: 0 0 3px; font-size: 16px; line-height: 1.34; }
+    .item p { margin: 0; color: var(--muted); line-height: 1.42; }
     .actions { display: flex; flex-wrap: wrap; gap: 8px; }
     .type { display:inline-block; font-size: 12px; color: var(--brand-2); font-weight: 750; margin-right: 6px; }
     .hotel-grid, .tips-grid { display:grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-    .info-card { padding: 18px; }
+    .info-card { padding: 16px; }
     .info-card h3 { margin:0 0 8px; }
     .info-card p, .info-card li { color: var(--muted); line-height: 1.55; }
     .info-card ul { margin: 8px 0 0; padding-left: 20px; }
@@ -115,7 +124,7 @@
       .slot { grid-template-columns: 78px 1fr; gap: 10px; }
       .stats { grid-template-columns: repeat(2, 1fr); }
       .hero-card { padding: 18px; }
-      .section { padding: 32px 0; }
+      .section { padding: 24px 0; }
       .section h2 { font-size: 34px; }
       .day-head h3 { font-size: 21px; overflow-wrap: anywhere; }
       .day-head p, .item p, .city-card p, .info-card p, .info-card li { font-size: 15px; }
@@ -131,12 +140,11 @@
       .stat span { font-size: 12px; }
       .nav-inner { padding: 8px 14px; }
       .nav a, .map-btn, button.filter { padding: 9px 11px; font-size: 13px; }
-      .day-head { padding: 15px; }
-      .timeline { padding: 10px 15px 15px; }
-      .slot { grid-template-columns: 1fr; }
+      .day-head { padding: 13px; }
+      .timeline { padding: 6px 13px 10px; }
+      .slot { grid-template-columns: 72px 1fr; gap: 8px; padding: 8px 0; }
       .time { font-size: 13px; }
       .item h4 { font-size: 16px; line-height: 1.35; }
-      .actions .map-btn { width: 100%; justify-content: center; }
       .badge { justify-self: start; }
     }
   </style>
@@ -168,10 +176,10 @@
     <section class="section" id="route">
       <h2>路线骨架</h2>
       <div class="route-grid">
-        <article class="card city-card"><h3>槟城</h3><p>乔治市老城一整天，第二天早起去极乐寺和升旗山，晚上飞新加坡。</p><a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=George%20Town%20Penang" target="_blank" rel="noopener">地图</a></article>
-        <article class="card city-card"><h3>新加坡</h3><p>Kallang 郊区地铁住宿，8/9 市区，8/10 环球，8/11 滨海湾后夜车。</p><a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Kallang%20Singapore" target="_blank" rel="noopener">地图</a></article>
-        <article class="card city-card"><h3>马六甲</h3><p>8/12 凌晨抵达先补觉，下午红屋和古城，晚上河边散步。</p><a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Jonker%20Street%20Melaka" target="_blank" rel="noopener">地图</a></article>
-        <article class="card city-card"><h3>吉隆坡</h3><p>8/13 入城，8/14 黑风洞和 KLCC，8/15 博物馆购物，8/16 返程。</p><a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Bukit%20Bintang%20Kuala%20Lumpur" target="_blank" rel="noopener">地图</a></article>
+        <article class="card city-card"><h3>槟城 <a class="mini-map" href="https://www.google.com/maps/search/?api=1&query=George%20Town%20Penang" target="_blank" rel="noopener">地图</a></h3><p>8/6-8/8 · 乔治市老城一整天，第二天早起去极乐寺和升旗山，晚上飞新加坡。</p></article>
+        <article class="card city-card"><h3>新加坡 <a class="mini-map" href="https://www.google.com/maps/search/?api=1&query=Kallang%20Singapore" target="_blank" rel="noopener">地图</a></h3><p>8/8-8/11 · Kallang 郊区地铁住宿，8/9 市区，8/10 环球，8/11 滨海湾后夜车。</p></article>
+        <article class="card city-card"><h3>马六甲 <a class="mini-map" href="https://www.google.com/maps/search/?api=1&query=Jonker%20Street%20Melaka" target="_blank" rel="noopener">地图</a></h3><p>8/11-8/13 · 8/12 凌晨抵达先补觉，下午红屋和古城，晚上河边散步。</p></article>
+        <article class="card city-card"><h3>吉隆坡 <a class="mini-map" href="https://www.google.com/maps/search/?api=1&query=Bukit%20Bintang%20Kuala%20Lumpur" target="_blank" rel="noopener">地图</a></h3><p>8/13-8/16 · 8/13 入城，8/14 黑风洞和 KLCC，8/15 博物馆购物，8/16 返程。</p></article>
       </div>
     </section>
 
@@ -320,7 +328,7 @@
         <article class="card day" data-city="${d.city}">
           <div class="day-head"><div><h3>${d.title}</h3><p>${d.note}</p></div><span class="badge">${d.city === 'penang' ? '槟城' : d.city === 'singapore' ? '新加坡' : d.city === 'melaka' ? '马六甲' : '吉隆坡'}</span></div>
           <div class="timeline">
-            ${d.slots.map(s => `<div class="slot"><div class="time">${s[0]}</div><div class="item"><h4><span class="type">${typeLabel[s[3]]}</span>${s[1]}</h4><p>${s[2]}</p><div class="actions"><a class="map-btn" href="${mapUrl(s[4])}" target="_blank" rel="noopener">Google Maps 导航</a></div></div></div>`).join('')}
+            ${d.slots.map(s => `<div class="slot"><div class="time">${s[0]}</div><div class="item"><h4><span class="type">${typeLabel[s[3]]}</span>${s[1]}<a class="mini-map" href="${mapUrl(s[4])}" target="_blank" rel="noopener">地图</a></h4><p>${s[2]}</p></div></div>`).join('')}
           </div>
         </article>`).join('');
     }
