@@ -126,6 +126,17 @@
     .food-meta { display: flex; flex-wrap: wrap; gap: 5px 9px; color: var(--muted); font-size: 12px; line-height: 1.45; margin-top: 4px; }
     .food-reason { color: var(--muted); font-size: 13px; line-height: 1.45; margin: 5px 0 0; }
     .priority { color: var(--brand-2); font-size: 11px; font-weight: 800; margin-right: 5px; }
+    .food-toggle { display: inline-flex; align-items: center; gap: 5px; margin: 8px 0 0; padding: 6px 9px; border: 1px solid #c9e1d8; border-radius: 7px; color: var(--brand); background: #f0faf6; font-size: 12px; font-weight: 800; cursor: pointer; }
+    .food-toggle:hover, .food-toggle[aria-expanded="true"] { background: var(--soft); border-color: var(--brand); }
+    .food-toggle .food-count { color: var(--muted); font-weight: 700; }
+    .spot-food { margin-top: 9px; padding: 10px 11px; border-left: 3px solid var(--brand); background: #f7fbf9; }
+    .spot-food[hidden] { display: none; }
+    .spot-food-title { margin: 0 0 7px; color: var(--ink); font-size: 13px; font-weight: 800; }
+    .spot-food-row { padding: 8px 0; border-top: 1px solid var(--line); }
+    .spot-food-row:first-of-type { border-top: 0; }
+    .spot-food-row strong { display: block; line-height: 1.35; }
+    .spot-food-row .food-meta { gap: 4px 8px; }
+    .spot-food-row .food-reason { margin-top: 3px; }
     .info-card { padding: 18px; }
     .info-card h3 { margin:0 0 8px; }
     .info-card p, .info-card li { color: var(--muted); line-height: 1.55; }
@@ -233,6 +244,7 @@
       <div class="tips-grid">
         <article class="card info-card"><h3>票务</h3><p>提前买环球影城门票；8/10 营业时间以 RWS 官方日历为准。8/9 NDP 完整场内观礼需要官方门票；无票就按 Kallang Basin 外围路线执行，不要把进入 National Stadium 当成默认方案。<a class="mini-map" href="https://www.ndp.gov.sg/ndp-2026-at-national-stadium/" target="_blank" rel="noopener">NDP 官方信息</a></p></article>
         <article class="card info-card"><h3>节奏</h3><p>8/9 国庆日不要把博物馆和滨海湾塞满，下午回酒店休息后专心去 Kallang。8/12 凌晨到马六甲，上午只睡觉。8/16 吉隆坡不要跑远。</p></article>
+        <article class="card info-card"><h3>榴莲</h3><p>马来西亚榴莲以当日库存为准：优先在马六甲和吉隆坡各尝一次，品种目标为猫山王、D24、黑刺、红虾、XO、Tekka。先确认单价、果肉重量、是否开果后必须购买，避免只看“猫山王”招牌却吃不到成熟果。</p></article>
       </div>
     </section>
 
@@ -323,7 +335,8 @@
         ['12:30-13:30','Hoe Kee 鸡饭粒','靠近鸡场街，顺路。','food','Hoe Kee Chicken Rice Ball Melaka'],
         ['13:30-16:30','红屋、基督堂、圣保罗山、A Famosa','马六甲经典步行线。','spot','Dutch Square Melaka'],
         ['18:00-19:30','Jonker Street','傍晚逛街。','spot','Jonker Street Melaka'],
-        ['19:30-21:30','Nancy’s Kitchen + 河边散步','娘惹菜后走 Melaka River。','food','Nancy\'s Kitchen Melaka']
+        ['19:30-21:30','Nancy’s Kitchen + 河边散步','娘惹菜后走 Melaka River。','food','Nancy\'s Kitchen Melaka'],
+        ['21:30-22:30','马六甲榴莲尝鲜','前往 Durian Cottage Melaka；优先问猫山王、D24、XO、Tekka，当天库存和成熟度决定最终品种。','food','Durian Cottage Melaka']
       ]},
       {city:'kl', title:'8/13 周四 · 马六甲到吉隆坡', note:'退房后拖箱直达车站和酒店；办理入住后把箱子放进房间，再开始轻量市区线', slots:[
         ['09:00-09:30','马六甲退房并拖箱去 Melaka Sentral','酒店到车站只用 Grab；不安排古城景点。','transport','Melaka Sentral'],
@@ -347,7 +360,8 @@
         ['11:30-12:00','国家清真寺外观/参观','注意着装和开放时段。','spot','National Mosque Malaysia'],
         ['14:00-16:30','Pavilion Kuala Lumpur','购物和伴手礼。','spot','Pavilion Kuala Lumpur'],
         ['16:30-18:00','The Exchange TRX','新商场，适合补逛。','spot','The Exchange TRX Kuala Lumpur'],
-        ['18:00-19:00','Lot 10 Hutong 晚餐','集中吃本地小吃。','food','Lot 10 Hutong Kuala Lumpur']
+        ['18:00-19:00','Lot 10 Hutong 晚餐','集中吃本地小吃。','food','Lot 10 Hutong Kuala Lumpur'],
+        ['19:30-21:00','榴莲多品种专场：DurianBB Park','重点尝试猫山王、D24、黑刺、红虾、XO、Tekka；先问价格、产地和是否按果肉重量计价。','food','DurianBB Park Kuala Lumpur']
       ]},
       {city:'kl', title:'8/16 周日 · 吉隆坡收尾返深', note:'09:30 退房寄存；16:00 回 Hotel Capitol 取箱，16:30 左右直达 KUL T2', slots:[
         ['09:30-10:00','早餐、退房并寄存行李','在 Hotel Capitol 前台确认寄存到 16:00；护照、贵重物品和登机资料随身。','hotel','Hotel Capitol Kuala Lumpur'],
@@ -410,15 +424,134 @@
       ]
     };
     const dayKey = title => title.match(/^8\/\d+/)?.[0];
+    const foodByGroup = {
+      penangOld: [
+        {name:'Teksen Restaurant', badge:'米其林指南/口碑', what:'潮州与华人家常菜：豆腐、咸蛋虾、炒粿条', distanceKm:.8, distance:'约 0.8 km', pax:'RM35-60/人', q:'Teksen Restaurant Penang'},
+        {name:'Hameediyah Restaurant', badge:'米其林指南推荐', what:'印度穆斯林菜：咖喱鸡、印度饭、炸鸡', distanceKm:.9, distance:'约 0.9 km', pax:'RM20-40/人', q:'Hameediyah Restaurant Penang'},
+        {name:'Joo Hooi Cafe', badge:'性价比', what:'槟城小吃：煎蕊、福建面、罗惹', distanceKm:1.1, distance:'约 1.1 km', pax:'RM12-25/人', q:'Joo Hooi Cafe Penang'},
+        {name:'New Lane Hawker Centre', badge:'性价比', what:'夜市小吃：炒粿条、蚝煎、粿汁', distanceKm:1.5, distance:'约 1.5 km', pax:'RM15-35/人', q:'New Lane Hawker Centre Penang'},
+        {name:'Siam Road Char Kway Teow', badge:'米其林/性价比', what:'单一招牌：炒粿条，适合快速吃', distanceKm:1.6, distance:'约 1.6 km', pax:'RM10-20/人', q:'Siam Road Char Kway Teow Penang'}
+      ],
+      penangHill: [
+        {name:'Penang Hill Food Court', badge:'景区内', what:'炒饭、面食、饮料，适合登山后补水', distanceKm:.1, distance:'升旗山内', pax:'RM12-25/人', q:'Penang Hill Food Court'},
+        {name:'Air Itam Laksa', badge:'米其林/性价比', what:'酸辣叻沙，升旗山下最有代表性的槟城味', distanceKm:.7, distance:'约 0.7 km', pax:'RM8-15/人', q:'Air Itam Laksa Penang'},
+        {name:'Sister Curry Mee', badge:'性价比', what:'咖喱面、猪血、豆芽，适合小份尝鲜', distanceKm:.8, distance:'约 0.8 km', pax:'RM8-15/人', q:'Sister Curry Mee Penang'},
+        {name:'Kek Lok Si Vegetarian Restaurant', badge:'素食/方便', what:'寺院素食、面饭，适合游览极乐寺后', distanceKm:1.0, distance:'约 1.0 km', pax:'RM12-25/人', q:'Kek Lok Si Vegetarian Restaurant Penang'},
+        {name:'Bao Sheng Durian Farm', badge:'榴莲专线', what:'季节性榴莲：猫山王、D24、红虾，需看当天库存', distanceKm:18, distance:'约 18 km', pax:'RM30-100+/人', q:'Bao Sheng Durian Farm Balik Pulau'}
+      ],
+      sgCentral: [
+        {name:'Song Fa Bak Kut Teh', badge:'米其林必比登', what:'胡椒肉骨茶、油条、卤味', distanceKm:.5, distance:'约 0.5 km', pax:'SGD18-30/人', q:'Song Fa Bak Kut Teh New Bridge Road Singapore'},
+        {name:'Hong Lim Market and Food Centre', badge:'性价比', what:'云吞面、猪肉粿条汤、烧肉饭', distanceKm:.7, distance:'约 0.7 km', pax:'SGD6-15/人', q:'Hong Lim Market and Food Centre Singapore'},
+        {name:'Chinatown Complex Food Centre', badge:'性价比', what:'鸡饭、粿汁、熟食小吃，选择最多', distanceKm:.8, distance:'约 0.8 km', pax:'SGD6-18/人', q:'Chinatown Complex Food Centre Singapore'},
+        {name:'Tian Tian Hainanese Chicken Rice', badge:'米其林必比登', what:'海南鸡饭、鸡饭套餐', distanceKm:1.2, distance:'约 1.2 km', pax:'SGD8-15/人', q:'Tian Tian Hainanese Chicken Rice Maxwell Food Centre'},
+        {name:'Maxwell Food Centre', badge:'性价比', what:'海南鸡饭、粥、沙爹、果汁', distanceKm:1.2, distance:'约 1.2 km', pax:'SGD8-20/人', q:'Maxwell Food Centre Singapore'}
+      ],
+      sgKallang: [
+        {name:'Old Airport Road Food Centre', badge:'米其林/性价比', what:'烧肉饭、福建面、粿条汤、甜品', distanceKm:2.2, distance:'约 2.2 km', pax:'SGD8-18/人', q:'Old Airport Road Food Centre Singapore'},
+        {name:'328 Katong Laksa', badge:'米其林指南/口碑', what:'加东叻沙、鱼饼、椰浆饮料', distanceKm:3.0, distance:'约 3.0 km', pax:'SGD10-20/人', q:'328 Katong Laksa Singapore'},
+        {name:'Kallang Wave Mall Food Court', badge:'方便', what:'简餐、饮料、快餐，国庆日避开长距离移动', distanceKm:.4, distance:'约 0.4 km', pax:'SGD10-20/人', q:'Kallang Wave Mall Food Court Singapore'},
+        {name:'Jalan Sultan Prawn Noodle', badge:'性价比', what:'虾面、卤面、炸物', distanceKm:1.3, distance:'约 1.3 km', pax:'SGD8-18/人', q:'Jalan Sultan Prawn Noodle Singapore'},
+        {name:'The Dim Sum Place', badge:'性价比', what:'点心、烧卖、肠粉，适合多人分食', distanceKm:1.5, distance:'约 1.5 km', pax:'SGD15-30/人', q:'The Dim Sum Place Singapore'}
+      ],
+      sgBay: [
+        {name:'Satay by the Bay', badge:'景区性价比', what:'沙爹、烧烤、椰浆饭', distanceKm:.2, distance:'约 0.2 km', pax:'SGD12-25/人', q:'Satay by the Bay Singapore'},
+        {name:'Makansutra Gluttons Bay', badge:'性价比', what:'福建面、沙爹、烧烤、海鲜', distanceKm:.8, distance:'约 0.8 km', pax:'SGD15-30/人', q:'Makansutra Gluttons Bay Singapore'},
+        {name:'Lau Pa Sat', badge:'性价比/选择多', what:'沙爹、海南鸡饭、叻沙、熟食', distanceKm:1.0, distance:'约 1.0 km', pax:'SGD10-20/人', q:'Lau Pa Sat Singapore'},
+        {name:'Palm Beach Seafood Restaurant', badge:'景观餐厅', what:'辣椒螃蟹、海鲜、黑胡椒蟹', distanceKm:1.1, distance:'约 1.1 km', pax:'SGD45-80/人', q:'Palm Beach Seafood Restaurant Singapore'},
+        {name:'Tiong Bahru Bakery Raffles City', badge:'轻食', what:'可颂、咖啡、三明治，适合博物馆间歇', distanceKm:1.4, distance:'约 1.4 km', pax:'SGD10-20/人', q:'Tiong Bahru Bakery Raffles City Singapore'}
+      ],
+      sgUSS: [
+        {name:'Malaysia Food Street VivoCity', badge:'性价比', what:'椰浆饭、鸡饭、炒粿条', distanceKm:.3, distance:'约 0.3 km', pax:'SGD10-18/人', q:'VivoCity Malaysia Food Street Singapore'},
+        {name:'Seah Im Food Centre', badge:'性价比', what:'鸡饭、面食、经济饭', distanceKm:.8, distance:'约 0.8 km', pax:'SGD6-15/人', q:'Seah Im Food Centre Singapore'},
+        {name:'Food Republic VivoCity', badge:'方便', what:'南洋熟食、饮料、甜品，空调座位多', distanceKm:.4, distance:'约 0.4 km', pax:'SGD10-22/人', q:'Food Republic VivoCity Singapore'},
+        {name:'Din Tai Fung VivoCity', badge:'稳定', what:'小笼包、炒饭、面食', distanceKm:.4, distance:'约 0.4 km', pax:'SGD18-35/人', q:'Din Tai Fung VivoCity Singapore'},
+        {name:'Universal Studios Singapore Restaurants', badge:'园区内', what:'园区套餐、汉堡、饮料，优先节省时间', distanceKm:.1, distance:'园区内', pax:'SGD18-30/人', q:'Universal Studios Singapore Restaurants'}
+      ],
+      melakaOld: [
+        {name:'Jonker 88', badge:'性价比', what:'娘惹糕、煎蕊、叻沙', distanceKm:.3, distance:'约 0.3 km', pax:'RM10-20/人', q:'Jonker 88 Melaka'},
+        {name:'The Daily Fix Cafe', badge:'性价比/咖啡', what:'松饼、吐司、咖啡、早午餐', distanceKm:.5, distance:'约 0.5 km', pax:'RM20-40/人', q:'The Daily Fix Cafe Melaka'},
+        {name:'Nancy’s Kitchen', badge:'娘惹菜', what:'娘惹饭、叻沙、娘惹糕点', distanceKm:.8, distance:'约 0.8 km', pax:'RM30-55/人', q:'Nancy Kitchen Melaka'},
+        {name:'Capitol Satay Celup', badge:'米其林指南/特色', what:'沙爹串火锅，蘸花生酱底', distanceKm:1.1, distance:'约 1.1 km', pax:'RM35-60/人', q:'Capitol Satay Celup Melaka'},
+        {name:'Pak Putra Tandoori and Naan', badge:'性价比', what:'印度烤鸡、烤饼、咖喱', distanceKm:1.4, distance:'约 1.4 km', pax:'RM25-45/人', q:'Pak Putra Tandoori and Naan Melaka'}
+      ],
+      klBukit: [
+        {name:'Jalan Alor Food Street', badge:'性价比/选择多', what:'烧鸡翅、沙爹、海鲜、炒粿条', distanceKm:.4, distance:'约 0.4 km', pax:'RM25-50/人', q:'Jalan Alor Food Street Kuala Lumpur'},
+        {name:'Lot 10 Hutong', badge:'米其林/老字号集合', what:'烧肉面、福建面、云吞面', distanceKm:.5, distance:'约 0.5 km', pax:'RM20-40/人', q:'Lot 10 Hutong Kuala Lumpur'},
+        {name:'Wong Ah Wah Chicken Wings', badge:'夜宵口碑', what:'炭烤鸡翅、沙爹、炒饭', distanceKm:.6, distance:'约 0.6 km', pax:'RM20-40/人', q:'Wong Ah Wah Chicken Wings Kuala Lumpur'},
+        {name:'DurianBB Park', badge:'榴莲专场', what:'猫山王、D24、黑刺、红虾、XO、Tekka，按季节供应', distanceKm:1.0, distance:'约 1.0 km', pax:'RM35-120+/人', q:'DurianBB Park Kuala Lumpur'},
+        {name:'ICC Pudu Food Court', badge:'性价比首选', what:'烧肉饭、粿条汤、糕点、椰浆饭', distanceKm:1.5, distance:'约 1.5 km', pax:'RM10-25/人', q:'ICC Pudu Food Court Kuala Lumpur'}
+      ],
+      klBatu: [
+        {name:'Restoran Sri Ananda Bahwan', badge:'性价比', what:'香蕉叶饭、印度煎饼、咖喱', distanceKm:1.0, distance:'约 1.0 km', pax:'RM15-30/人', q:'Restoran Sri Ananda Bahwan Batu Caves'},
+        {name:'Batu Caves Indian Food Court', badge:'近景点', what:'印度饭、烤饼、拉茶', distanceKm:.7, distance:'约 0.7 km', pax:'RM10-20/人', q:'Batu Caves Indian Food Court'},
+        {name:'Samy Curry Restaurant', badge:'性价比', what:'香蕉叶饭、羊肉咖喱、炸鸡', distanceKm:1.8, distance:'约 1.8 km', pax:'RM15-30/人', q:'Samy Curry Restaurant Batu Caves'},
+        {name:'Nirwana Maju Banana Leaf', badge:'米其林/口碑', what:'香蕉叶饭、炸鸡、鱼咖喱', distanceKm:12, distance:'约 12 km', pax:'RM15-30/人', q:'Nirwana Maju Banana Leaf Bangsar'},
+        {name:'Pelita Nasi Kandar', badge:'性价比', what:'椰浆饭、印度煎饼、咖喱饭', distanceKm:13, distance:'约 13 km', pax:'RM15-30/人', q:'Pelita Nasi Kandar Kuala Lumpur'}
+      ],
+      klKLCC: [
+        {name:'Madam Kwan’s Suria KLCC', badge:'稳定/本地菜', what:'椰浆饭、咖喱面、沙爹', distanceKm:.3, distance:'约 0.3 km', pax:'RM25-50/人', q:'Madam Kwan Suria KLCC'},
+        {name:'Suria KLCC Food Court', badge:'性价比', what:'椰浆饭、面食、甜品，空调座位多', distanceKm:.3, distance:'约 0.3 km', pax:'RM15-30/人', q:'Suria KLCC Food Court'},
+        {name:'Pelita Nasi Kandar KLCC', badge:'性价比', what:'印度咖喱饭、炸鸡、烤饼', distanceKm:.8, distance:'约 0.8 km', pax:'RM18-35/人', q:'Pelita Nasi Kandar KLCC'},
+        {name:'Healy Mac’s 12 Bar and Grill', badge:'夜景/西餐', what:'汉堡、海鲜、啤酒，适合看夜景', distanceKm:1.0, distance:'约 1.0 km', pax:'RM35-70/人', q:'Healy Macs 12 Bar and Grill Kuala Lumpur'},
+        {name:'Nasi Lemak Angah', badge:'性价比', what:'椰浆饭、炸鸡、参巴', distanceKm:1.3, distance:'约 1.3 km', pax:'RM12-25/人', q:'Nasi Lemak Angah Kuala Lumpur'}
+      ],
+      klMuseum: [
+        {name:'Ho Kow Hainam Kopitiam', badge:'米其林/性价比', what:'海南咖啡、鸡扒饭、吐司', distanceKm:1.0, distance:'约 1.0 km', pax:'RM10-25/人', q:'Ho Kow Hainam Kopitiam Kuala Lumpur'},
+        {name:'Yut Kee Restaurant', badge:'老字号/性价比', what:'海南面包、叉烧、海南鸡扒', distanceKm:1.2, distance:'约 1.2 km', pax:'RM15-30/人', q:'Yut Kee Restaurant Kuala Lumpur'},
+        {name:'Lai Foong Lala Noodles', badge:'米其林必比登', what:'啦啦米粉、海鲜汤面', distanceKm:1.3, distance:'约 1.3 km', pax:'RM15-30/人', q:'Lai Foong Lala Noodles Kuala Lumpur'},
+        {name:'Ali Muthu and Ah Hock', badge:'性价比', what:'椰浆饭、福建面、鸡饭', distanceKm:1.5, distance:'约 1.5 km', pax:'RM18-35/人', q:'Ali Muthu and Ah Hock Kuala Lumpur'},
+        {name:'Merchant’s Lane', badge:'咖啡/甜品', what:'南洋咖啡、班兰甜品、融合菜', distanceKm:1.6, distance:'约 1.6 km', pax:'RM25-45/人', q:'Merchant’s Lane Kuala Lumpur'}
+      ],
+      klPavilion: [
+        {name:'Lot 10 Hutong', badge:'米其林/老字号集合', what:'烧肉面、福建面、云吞面', distanceKm:.5, distance:'约 0.5 km', pax:'RM20-40/人', q:'Lot 10 Hutong Kuala Lumpur'},
+        {name:'Pavilion Food Republic', badge:'性价比/选择多', what:'本地小吃、面饭、甜品', distanceKm:.2, distance:'约 0.2 km', pax:'RM18-35/人', q:'Pavilion Kuala Lumpur Food Republic'},
+        {name:'Grandmama’s Pavilion', badge:'本地菜', what:'椰浆饭、炒粿条、娘惹菜', distanceKm:.2, distance:'约 0.2 km', pax:'RM25-45/人', q:'Grandmamas Pavilion Kuala Lumpur'},
+        {name:'Village Park Nasi Lemak', badge:'米其林指南/口碑', what:'椰浆饭、炸鸡、参巴', distanceKm:11, distance:'约 11 km', pax:'RM15-30/人', q:'Village Park Restaurant Kuala Lumpur'},
+        {name:'DurianMan SS2', badge:'榴莲专场', what:'猫山王、D24、黑刺、红虾，现场按库存组合', distanceKm:13, distance:'约 13 km', pax:'RM35-120+/人', q:'DurianMan SS2 Kuala Lumpur'}
+      ],
+      melakaDurian: [
+        {name:'Durian Cottage Melaka', badge:'榴莲专场', what:'猫山王、D24、XO、Tekka，按当季库存', distanceKm:2.5, distance:'约 2.5 km', pax:'RM30-100+/人', q:'Durian Cottage Melaka'},
+        {name:'Jonker Street Seasonal Durian Stalls', badge:'当季摊位', what:'红虾、D24、甘榜榴莲，先问品种和价格', distanceKm:.6, distance:'约 0.6 km', pax:'RM15-60+/人', q:'Jonker Street Melaka Durian'},
+        {name:'Durian World Melaka', badge:'榴莲选择多', what:'猫山王、黑刺、D24，库存随日期变化', distanceKm:4.0, distance:'约 4.0 km', pax:'RM35-120+/人', q:'Durian World Melaka'},
+        {name:'The Shore Hotel nearby fruit stalls', badge:'深夜备选', what:'当季水果和榴莲，适合不再远行时尝鲜', distanceKm:.3, distance:'约 0.3 km', pax:'RM20-80+/人', q:'Durian near The Shore Hotel Melaka'},
+        {name:'Bao Sheng Durian Farm', badge:'榴莲农场专线', what:'猫山王、D24、红虾，需另安排槟城/巴厘岛路线', distanceKm:480, distance:'不在本段路线', pax:'RM30-100+/人', q:'Bao Sheng Durian Farm Balik Pulau'}
+      ]
+    };
+    const foodGroupFor = q => {
+      if (/Kek Lok Si|Penang Hill/.test(q)) return 'penangHill';
+      if (/Penang|George Town|Little India|Khoo Kongsi|Chew Jetty/.test(q)) return 'penangOld';
+      if (/Kallang|National Stadium|Kallang Wave/.test(q)) return 'sgKallang';
+      if (/Gardens by the Bay|ArtScience|Marina Bay|Satay by the Bay|Makansutra|Lau Pa Sat/.test(q)) return 'sgBay';
+      if (/Universal|HarbourFront|VivoCity/.test(q)) return 'sgUSS';
+      if (/Melaka|Dutch Square|Jonker|Daily Fix|Nancy/.test(q)) return 'melakaOld';
+      if (/Batu Caves/.test(q)) return 'klBatu';
+      if (/Petronas|Suria KLCC|Lake Symphony/.test(q)) return 'klKLCC';
+      if (/Islamic Arts|National Mosque|Merdeka Square/.test(q)) return 'klMuseum';
+      if (/Pavilion|Exchange TRX|Bukit Bintang/.test(q)) return 'klPavilion';
+      return 'sgCentral';
+    };
+    const foodsForSpot = q => {
+      const group = foodGroupFor(q);
+      return [...(foodByGroup[group] || foodByGroup.sgCentral)].sort((a,b) => a.distanceKm - b.distanceKm);
+    };
+    const foodListHtml = q => foodsForSpot(q).map(f => `<div class="spot-food-row"><strong><span class="priority">${f.badge}</span>${f.name}<a class="mini-map" href="${mapUrl(f.q)}" target="_blank" rel="noopener">地图</a></strong><div class="food-meta"><span>${f.what}</span><span>${f.pax}</span><span>${f.distance}</span></div></div>`).join('');
     function render(filter='all') {
       daysEl.innerHTML = days.filter(d => filter === 'all' || d.city === filter).map(d => `
         <article class="card day" data-city="${d.city}">
           <div class="day-head"><div><h3>${d.title}</h3><p>${d.note}</p></div><span class="badge">${d.city === 'penang' ? '槟城' : d.city === 'singapore' ? '新加坡' : d.city === 'melaka' ? '马六甲' : '吉隆坡'}</span></div>
-          <div class="day-layout"><div class="timeline">
-            ${d.slots.map(s => `<div class="slot"><div class="time">${s[0]}</div><div class="item"><h4><span class="type">${typeLabel[s[3]]}</span>${s[1]}<a class="mini-map" href="${mapUrl(s[4])}" target="_blank" rel="noopener">地图</a></h4><p>${s[2]}</p></div></div>`).join('')}
-          </div><aside class="food-panel"><h4>附近美食</h4><p class="food-lead">按米其林/口碑与性价比排序；价格为每人出发前参考。</p>${(foodByDay[dayKey(d.title)] || []).map(f => `<div class="food-row"><strong><span class="priority">${f.priority}</span>${f.name}<a class="mini-map" href="${mapUrl(f.q)}" target="_blank" rel="noopener">地图</a></strong><div class="food-meta"><span>${f.dish}</span><span>${f.pax}</span><span>${f.distance}</span></div><p class="food-reason">${f.reason}</p></div>`).join('')}</aside></div>
+          <div class="timeline">
+            ${d.slots.map(s => { const foods = s[3] === 'spot' ? foodsForSpot(s[4]) : []; return `<div class="slot"><div class="time">${s[0]}</div><div class="item"><h4><span class="type">${typeLabel[s[3]]}</span>${s[1]}<a class="mini-map" href="${mapUrl(s[4])}" target="_blank" rel="noopener">地图</a></h4><p>${s[2]}</p>${foods.length ? `<button class="food-toggle" type="button" data-food-toggle aria-expanded="false"><span aria-hidden="true">🍽</span>附近美食<span class="food-count">${foods.length} 家</span></button><div class="spot-food" data-food-panel hidden><p class="spot-food-title">按距离排序 · 主要吃什么 / 人均 / 地图</p>${foodListHtml(s[4])}</div>` : ''}</div></div>`; }).join('')}
+          </div>
         </article>`).join('');
     }
+    daysEl.addEventListener('click', event => {
+      const button = event.target.closest('[data-food-toggle]');
+      if (!button) return;
+      const panel = button.nextElementSibling;
+      const expanded = button.getAttribute('aria-expanded') === 'true';
+      button.setAttribute('aria-expanded', String(!expanded));
+      panel.hidden = expanded;
+    });
     document.querySelectorAll('button.filter').forEach(btn => btn.addEventListener('click', () => {
       document.querySelectorAll('button.filter').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
